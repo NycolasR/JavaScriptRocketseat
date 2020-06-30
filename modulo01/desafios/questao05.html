@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var usuarios = [
+            {
+                nome: "Diego",
+                habilidades: ['Javascript', 'ReactJS', "Redux"]
+            },
+            {
+                nome: "Gabriel",
+                habilidades: ['VueJS', 'Ruby on Rails', 'Elixir']
+            }
+        ]
+
+        function toString(usuarios) {
+            for (const usuario of usuarios) {
+                console.log(`O ${usuario.nome} possui as habilidades: ${usuario.habilidades.join(", ")}`)
+            }
+        }
+
+        toString(usuarios)
+    </script>
+</body>
+</html>
