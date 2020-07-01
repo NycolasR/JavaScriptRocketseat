@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="name" id="name">
+    <button onclick="add()">Add this name</button>
+    <ul id="list"></ul>
+
+    <script>
+        var names = ['Diego', 'Gabriel', 'Lucas']
+        var listElement = document.querySelector('#list')
+        var inputElement = document.querySelector('#name')
+
+        for(var i = 0; i < names.length; i++) {
+            addName(names[i]);
+        }
+
+        function add() {
+            var name = inputElement.value
+
+            if(textFieldEmpty()) {
+                alert('Type a name!')
+            } else if(isNameOnTheList(name)) {
+                alert("This name's already on the list")
+            } else {
+                addName(name)
+                names.push(name)
+            }
+
+            inputElement.value = ''
+            inputElement.focus()
+        }
+
+        function isNameOnTheList(name) {
+            return names.indexOf(name) != -1
+        }
+
+        function addName(name) {
+            var listItem = document.createElement('li')
+            listItem.appendChild(document.createTextNode(name))
+            listElement.appendChild(listItem)
+        }
+
+        function textFieldEmpty() {
+            return inputElement.value.length == 0
+        }
+    </script>
+</body>
+</html>

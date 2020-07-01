@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="adicionar bloco" id="btnBloco">
+
+    <ul id="list"></ul>
+
+    <script>
+        var buttonElement = document.querySelector('#btnBloco')
+        buttonElement.style.width = '250px'
+        buttonElement.style.height = '50px'
+
+        var listElement = document.querySelector('#list')
+        listElement.style.listStyle = 'none'
+
+        buttonElement.onclick = function() {
+            var block = document.createElement('div')
+            block.setAttribute('class', 'block')
+            block.style.backgroundColor = getRandomColor()
+            block.style.width = '100px'
+            block.style.height = '100px'
+            block.style.margin = '5px'
+            block.style.borderRadius = '50%'
+
+            //document.body.appendChild(block)
+
+            var listItem = document.createElement('li')
+            listItem.style.display = 'inline-block'
+            listItem.appendChild(block)
+            listElement.appendChild(listItem)
+        }
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF"
+            var color = "#"
+            for(var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)]
+            }
+
+            return color
+        }
+    </script>
+</body>
+</html>
